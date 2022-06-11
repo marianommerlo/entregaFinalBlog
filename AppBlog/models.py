@@ -33,7 +33,7 @@ class Post(models.Model):
     slug = models.CharField('Slug', max_length = 100, null = False, blank = False)
     descripcion = models.CharField('Descripción', max_length = 110, null = False, blank = False)
     contenido = RichTextField('Contenido', blank = False, null = False)
-    imagen = models.URLField(max_length = 255, null = False, blank = False)
+    imagen = models.URLField(max_length = 1100, null = False, blank = False)
     #Atento acá porque se usa url si subo a heroku, no se puede almacenar imagenes.
     #En todo caso sera models.ImageField
     autor = models.ForeignKey(Autor, on_delete = models.CASCADE)

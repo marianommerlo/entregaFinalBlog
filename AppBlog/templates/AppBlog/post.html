@@ -1,0 +1,28 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% load static %}
+
+{% block título %}
+
+<h5>Sección {{ detalle_post.categoria }}</h5>
+<h1>{{ detalle_post.titulo }}</h1>
+<p>{{ detalle_post.descripcion }}</p>
+<p>Escrito por {{ detalle_post.autor }} el {{ detalle_post.fecha_creacion }}</p>
+
+{% endblock %}
+
+{% block imagen %}
+
+{{ detalle_post.imagen }}
+
+{% endblock %}
+
+{% block post %}
+
+{{ detalle_post.contenido | safe }}
+
+{% endblock %}
+
+{% block busqueda %}
+{% endblock %}
+    
