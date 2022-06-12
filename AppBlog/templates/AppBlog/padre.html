@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Blog Finanzas</a>
-                <a class="btn btn-primary" style="background-color:transparent; border-color: whitesmoke" href="#!GENERAR LINK">Volver a la Web</a>
+                <a class="btn btn-primary" style="background-color:transparent; border-color: whitesmoke" href="{% url 'nofunciona' %}">Volver a la Web</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -40,7 +40,7 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url({% block imagen %}{% static 'AppBlog/assets/img/home-bg.jpg' %}{% endblock %})">
+        <header class="masthead" style="background-image: url({% block imagen %} {% static 'AppBlog/assets/img/home-bg.jpg' %} {% endblock %})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -96,7 +96,7 @@
                                     {{ post.titulo }}
                                 </h2>
                                 <h3 class="post-subtitle">
-                                    {{ post.descripcion }}                
+                                    {{ post.subtitulo }}                
                                 </h3>            
                             </a>
                             <p class="post-meta">
