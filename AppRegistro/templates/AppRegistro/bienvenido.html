@@ -1,0 +1,27 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% load static %}
+
+{% block título %}
+
+<h1>Blog de Finanzas</h1>
+<span class="subheading">Un blog creado por Mariano Merlo</span>
+<br>
+{% if user.is_authenticated %}
+<h3>{{mensaje}} <span style="color:red">{{user}}</span></h3>
+
+{% else %}
+
+<h3>{{mensaje}}</h3>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block post %}
+{% endblock %}
+
+{% block busqueda %}
+{% endblock %}

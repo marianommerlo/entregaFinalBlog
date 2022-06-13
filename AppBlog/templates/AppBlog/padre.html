@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,6 +34,30 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'finanzaspersonales' %}">Finanzas Personales</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'inversiones' %}">Inversiones</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'seguros' %}">Seguros</a></li>
+                        
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                                {% if not request.user.is_register %}
+                        
+                                <li class="nav-item"><a class="btn btn-primary" style="background-color: darkblue; border-color: darkblue" href="{% url 'registro' %}">REGISTRATE</a></li>
+                                
+                                {% endif %}
+
+                                {% if not request.user.is_authenticated %}
+
+                                <li class="nav-item"><a class="btn btn-primary" style="background-color: red; border-color: red" href="{% url 'login' %}">ENTRAR</a></li>
+                                
+                                {% else %}
+
+                                <li class="nav-item"><p>Hola {{user}}</p></li>
+                                
+                                <li class="nav-item"><a class="btn" href="{% url 'perfil_listar' %}">Editar Perfil</a></li>
+                                <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout' %}">SALIR</a></li>
+
+
+                                {% endif %}
+                            </ul>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -122,31 +145,34 @@
             </div>
         </div>
 
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-left">
-                {% if posts.has_previous %}
-                    <div class="clearfix">
-                        <a href="?page={{ posts.previous_page_number }}" class="btn btn-primary float-left">Anterior</a>
-                    </div>                        
-                {% endif %}
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-left">
+                    {% if posts.has_previous %}
+                        <div class="clearfix">
+                            <a href="?page={{ posts.previous_page_number }}" class="btn btn-primary float-left">Anterior</a>
+                        </div>                        
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-right">
+                    {% if posts.has_next %}
+                        <div class="clearfix">
+                            <a href="?page={{ posts.next_page_number }}" class="btn btn-primary float-right">Siguiente</a>
+                        </div>                        
+                    {% endif %}
+                </div>
             </div>
         </div>
-        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6 float-right">
-                {% if posts.has_next %}
-                    <div class="clearfix">
-                        <a href="?page={{ posts.next_page_number }}" class="btn btn-primary float-right">Siguiente</a>
-                    </div>                        
-                {% endif %}
-            </div>
-        </div>
-    </div>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="text-center text-muted">
+                            <a class="btn btn-primary" style="background-color: gray ; border-color: whitesmoke; color: black;" href="{% url 'aboutme' %}">Conocé a Mariano Merlo</a>
+                        </div>
                         <div class="small text-center text-muted fst-italic" href='https://www.freepik.es/fotos/impuestos'>Foto de impuestos creado por snowing - www.freepik.es</div>
                         <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
                     </div>
