@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AppBlog',
     'ckeditor',
-    'AppRegistro',
+    'AppPerfiles',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +60,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'entregaFinalBlog.wsgi.application'
+
 
 
 # Database
@@ -108,7 +109,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_URL= '/AppRegistro/login'
+LOGIN_URL= '/AppPerfiles/login'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -47,3 +47,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo + ' por ' + self.autor.apellido + ', ' + self.autor.nombre
+    

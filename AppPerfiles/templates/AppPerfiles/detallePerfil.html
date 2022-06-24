@@ -1,0 +1,36 @@
+{% extends "AppBlog/padre.html" %}
+
+{% load static %}
+
+{% block post %}
+
+<h2>Editando <h style="color:red">{{user}}</h></h2>
+
+{{mensaje}}
+
+<p>USUARIO : <i>{{user}}</i></p>
+<p>NOMBRE : <i>{{user.first_name}}</i></p>
+<p>APELLIDO : <i>{{user.last_name}}</i></p>
+<p>EMAIL : <i>{{user.email}}</i></p>
+<p>WEB : <i>{{user.web}}</i></p>
+<p>DESCRIPCION : <i>{{user.descripcion}}</i></p>
+
+<button>
+    <a href="{% url 'editarPerfil' %}">EDITAR</a>
+</button>
+
+<button>
+    <a href="{% url 'eliminarPerfil' user %}">ELIMINAR</a>
+</button>
+
+
+{% endblock %}
+    
+{% block título %}
+
+<h1>DETALLE DEL PERFIL <h style="color:red">{{user}}</h></h1>
+
+{% endblock %}
+
+{% block busqueda %}
+{% endblock %}

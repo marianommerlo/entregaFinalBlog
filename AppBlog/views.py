@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from AppBlog.models import *
+from .models import *
 from django.db.models import Q
 from django.core.paginator import Paginator
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
+#from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+#from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import *
 
 
 def inicio(request):
@@ -17,13 +20,13 @@ def inicio(request):
     posts = paginator.get_page(page)
     
     return render(request, 'AppBlog/inicio.html', {'posts': posts})
-
-
+# POSTS --------------------------------------------------------------------------------------------------------------------
+@login_required
 def detallePost(request, slug):
     post = get_object_or_404(Post, slug = slug)
     return render(request, 'AppBlog/post.html', {'detalle_post': post})
-    
 
+#---------------------------------------------------------------------------------------------------------------------
 def finanzaspersonales(request):
     queryset = request.GET.get("buscar")
     posts = Post.objects.filter(estado = True, categoria = Categoria.objects.get(nombre__iexact = 'Finanzas Personales'))
@@ -67,3 +70,6 @@ def noFunciona(request):
 
 def aboutMe(request):
     return render(request, 'AppBlog/aboutMe.html')
+
+
+

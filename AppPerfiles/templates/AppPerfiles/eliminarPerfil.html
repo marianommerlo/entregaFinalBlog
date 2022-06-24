@@ -1,0 +1,29 @@
+{% extends "AppBlog/padre.html" %}
+
+{% load static %}
+
+{% block post %}
+
+<form method= "POST">{% csrf_token %}
+
+    ¿Estás seguro que deseas borrar el estudiante "{{object}}"?
+    <input type="submit" value="SI">
+    
+</form>
+
+<p>
+    <a href="{% url 'detallePerfil' %}">VOLVER SIN ELIMINAR PERFIL</a>
+
+</p>
+    
+{% endblock %}
+ 
+
+{% block título %}
+
+<h1>EDICION DE PERFIL</h1>
+
+{% endblock %}
+
+{% block busqueda %}
+{% endblock %}

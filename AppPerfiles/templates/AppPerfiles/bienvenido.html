@@ -5,23 +5,22 @@
 {% block título %}
 
 <h1>Blog de Finanzas</h1>
-<h2>Bienvenido</h2>
 <span class="subheading">Un blog creado por Mariano Merlo</span>
 <br>
-
 {% if user.is_authenticated %}
-<h3>¡Hola <span style="color: red";>{{user}}</span>!</h3>
-<br>
-<img src="{{url}}" alt="">
-<br>
-{{mensaje}}
+<h3>{{mensaje}} <span style="color:red">{{user}}</span></h3>
+
 {% else %}
 
-{{ mensaje }}
+<h3>{{mensaje}}</h3>
 
 {% endif %}
-
 
 {% endblock %}
 
 
+{% block post %}
+{% endblock %}
+
+{% block busqueda %}
+{% endblock %}
